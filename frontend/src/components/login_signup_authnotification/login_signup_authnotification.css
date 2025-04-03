@@ -1,0 +1,59 @@
+.login-signup-authnotification-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .login-signup-authnotification-content {
+    background: #2C2C34;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    color: white;
+  }
+  
+  .login-signup-authnotification-buttons {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+    justify-content: center;
+  }
+  
+  .login-signup-authnotification-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+  
+  .login-signup-authnotification-btn.login {
+    background: #3E3E48;
+    color: white;
+  }
+  
+  .login-signup-authnotification-btn.signup {
+    background: #a62828;
+    color: white;
+  }
+  
+  .login-signup-authnotification-close {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .login-signup-authnotification-close:hover {
+    color: #fff;
+  }

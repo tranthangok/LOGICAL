@@ -1,0 +1,103 @@
+.solitaire-history-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .solitaire-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .solitaire-history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .solitaire-history-table th,
+  .solitaire-history-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .solitaire-history-table th {
+    background-color: #f5f5f5;
+  }
+  
+  .solitaire-history-table tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  .solitaire-history-header button {
+    background: #28A661;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+  }
+  
+  .solitaire-history-header button:hover {
+    background: #1f7a4d;
+    transform: translateY(-1px);
+  }
+
+  .solitaire-history-subtitle {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+@media (max-width: 480px) {
+  .solitaire-history-container {
+    margin: 0px;
+    padding: 15px;
+  }
+
+  .solitaire-history-table th,
+  .solitaire-history-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .solitaire-history-subtitle {
+    font-size: 0.8em;
+    margin: 5px 0 15px;
+  }
+
+  .solitaire-history-table th:nth-child(6),
+  .solitaire-history-table td:nth-child(6) {
+    display: table-cell;
+  }
+
+  .solitaire-history-table {
+    white-space: normal;
+  }
+
+  /* Điều chỉnh ngắt dòng cho ô Time Played */
+  .solitaire-history-table td:nth-child(6) {
+    word-break: break-word;
+    min-width: 120px;
+    max-width: 150px;
+  }
+
+  /* Giảm padding cho các ô */
+  .solitaire-history-table td {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .solitaire-history-table th {
+    font-size: 14px;
+    padding: 4px;
+  }
+}

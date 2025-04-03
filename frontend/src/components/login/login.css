@@ -1,0 +1,225 @@
+.login-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0 10%;
+}
+
+.login-text-container{
+    width: 40%;
+}
+
+.login-text-container h1 {
+    font-size: 60px;
+    font-weight: 600; 
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+.login-text-container p {
+    font-size: 30px;
+    font-weight: 500; 
+    margin: 0;
+    color: #ffffff;
+}
+
+.login-logo {
+    font-weight: 800; 
+}
+
+.logintosignup-link {
+    text-decoration: underline;
+    color: #FC4040;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #202027;
+    padding: 50px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 40%;
+}
+
+.input-login-field {
+    padding: 15px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-toggle {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 40%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.password-toggle-icon:hover {
+    color: #ffffff;
+}
+
+.error-message-login {
+    color: #FC4040;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    display: block; 
+    width: 100%;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.submit-login-button {
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 500; 
+    background-color: #1951A0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-login-button:hover {
+    background-color: #164080;
+}
+
+.login-forgotpassword {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+.login-password-hint {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.login-custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.login-custom-alert.success {
+    background: #4CAF50;
+}
+
+.login-custom-alert.error {
+    background: #f44336;
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
+    .login-text-container h1 {
+        font-size: 46px;
+        margin-bottom: 40px;
+        color: #ffffff;
+    }
+
+    .login-form-container {
+        padding: 40px;
+    }
+
+    .input-login-field {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .login-text-container p {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 800px) {
+    .login-text-container{
+        width: 100%;
+        text-align: center;
+    }
+
+    .login-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .login-forgotpassword {
+        font-size: 16px;
+    }
+
+    .login-text-container h1 {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+
+    .login-text-container p {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .login-viasocial-text{
+        font-size: 16px;
+    }
+
+    .input-login-field {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .login-social-icon {
+        font-size: 24px;
+        color: #ffffff;
+        margin-right: 15px;
+    }
+
+    .login-form-container {
+        padding: 30px;
+        max-width: 50%;
+        width: 100%;
+    }
+
+    .submit-login-button {
+        font-size: 18px;
+    }
+
+    .login-password-hint{
+        display: none;
+      }
+}

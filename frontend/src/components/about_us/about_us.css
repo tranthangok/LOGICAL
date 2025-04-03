@@ -1,0 +1,173 @@
+.about-us-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+.about-us-hero-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.about-us-hero-text {
+    position: absolute;
+    top: 45%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    width: 90%;
+    max-width: 800px; 
+}
+
+.about-us-hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-us-logo {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Căn giữa chữ */
+    padding: 50px;
+    background-color: #202027;
+}
+
+.about-us-text {
+    width: 80%; /* Giới hạn chiều rộng của văn bản */
+    max-width: 700px; /* Giới hạn chiều rộng tối đa */
+}
+
+.about-us-text h3 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-us-text p {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about-us-question {
+    background: linear-gradient(90deg, #542A60 0%, #060E35 100%);
+    text-align: center;
+    padding: 50px 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0;
+}
+
+.about-us-question a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+    .about-us-hero-text {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; /* Giới hạn chiều rộng để không tràn ra ngoài */
+    }
+    
+    .about-us-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .about-us-logo {
+        font-size: 30px;
+    }
+
+    .about-us-content {
+        padding: 30px 5%; /* Điều chỉnh padding để không bị cách bên trái */
+    }
+
+    .about-us-text {
+        width: 90%; /* Giới hạn chiều rộng của văn bản */
+    }
+
+    .about-us-question a {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-us-hero-text {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; /* Giới hạn chiều rộng để không tràn ra ngoài */
+    }
+
+    .about-us-hero-text h1 {
+        font-size: 36px;
+    }
+
+    .about-us-logo {
+        font-size: 26px;
+    }
+
+    .about-us-text h3 {
+        font-size: 30px;
+    }
+
+    .about-us-text p {
+        font-size: 24px;
+    }
+
+    .about-us-question a {
+        font-size: 26px;
+    }
+
+    .about-us-question {
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-hero-text h1 {
+        font-size: 24px;
+    }
+
+    .about-us-text h3 {
+        font-size: 20px;
+    }
+
+    .about-us-logo {
+        font-size: 20px;
+    }
+
+    .about-us-text p {
+        font-size: 16px;
+    }
+
+    .about-us-question a {
+        font-size: 20px;
+    }
+}

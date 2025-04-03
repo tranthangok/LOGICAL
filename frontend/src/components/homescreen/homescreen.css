@@ -1,0 +1,416 @@
+.homescreen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .homescreen-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .homescreen-firstcontent {
+    max-width: 50%;
+  }
+  
+  .homescreen-title {
+    font-size: 60px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .homescreen-description {
+    font-size: 26px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  .homescreen-signup-button {
+    background-color: #a62828;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 15px;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homescreen-signup-button:hover {
+    background-color: #671717;
+  }
+  
+  .homescreen-image-container {
+    width: 625px;
+    height: 550px;
+    position: relative;
+  }
+  
+  .homescreen-firstimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotate(15deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Phần Our Games Category */
+  .games-category-container {
+    width: 100%;
+    padding: 0 10%;
+    margin-top: 100px;
+    text-align: center;
+  }
+  
+  .games-category-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 50px;
+  }
+  
+  .games-category-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .game-card {
+    background-color:#b83811;
+    border-radius: 50px;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .game-image-container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .homegame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+  }
+  
+  .game-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 34px;
+    font-weight: 600;
+    color: white;
+  }
+
+  /* Phần About Us */
+.home-about-us-big{
+    padding: 0;
+}
+
+.home-about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #962C24 0%, #300E0C 100%);
+    border-radius: 50px;
+    padding: 50px;
+    margin-top: 200px;
+    width: 100%;
+  }
+  
+  .home-about-us-content {
+    max-width: 65%;
+  }
+  
+  .home-about-us-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .home-about-us-description {
+    font-size: 26px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  .find-out-more-button {
+    background-color: #a62828;
+    border: none;
+    padding: 15px 30px;
+    font-size: 26px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    color: #ffffff;
+    text-decoration: none; 
+    display: inline-block;
+}
+
+.find-out-more-button:hover {
+    background-color: #671717;
+}
+  
+  .home-about-us-image-container {
+    width: 360px;
+    height: 360px;
+    position: relative;
+  }
+  
+  .home-about-us-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+  }
+
+  /* Thông báo logout */
+.homescreennavbar-custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.homescreennavbar-custom-alert.success {
+  background: #4CAF50;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+    .homescreen-image-container {
+        width: 525px;
+        height: 450px;
+    }
+
+    .home-about-us-content {
+        max-width: 60%;
+    }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+    .homescreen-container {
+        margin-top: 100px;
+    }
+    
+    .homescreen-image-container {
+        width: 425px;
+        height: 350px;
+    }
+
+    .homescreen-title {
+        font-size: 50px;
+        margin-bottom: 20px;
+      }
+      
+    .homescreen-description {
+        font-size: 20px;
+    }
+      
+    .homescreen-signup-button {
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+
+    .games-category-container {
+        width: 100%;
+        padding: 0 10%;
+        margin-top: 100px;
+        text-align: center;
+      }
+      
+    .games-category-title {
+        font-size: 46px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 50px;
+      }
+      
+    .games-category-list {
+        gap: 20px;
+    }
+      
+    .game-card {
+        width: 300px;
+        height: 300px;
+    }
+      
+    .game-image-container {
+        width: 200px;
+        height: 200px;
+      }
+      
+    .game-name {
+        font-size: 32px;
+    }
+
+    .home-about-us-container {
+        padding: 40px;
+        margin-top: 150px;
+      }
+      
+    .home-about-us-content {
+        max-width: 60%;
+    }
+      
+    .home-about-us-title {
+        font-size: 40px;
+    }
+      
+    .home-about-us-description {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+      
+    .find-out-more-button {
+        padding: 10px 20px;
+        font-size: 24px;
+    }
+      
+    .home-about-us-image-container {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 900px) {
+    .homescreen-container {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .homescreen-firstcontent {
+        max-width: 100%;
+    }
+    
+    .homescreen-image-container {
+        display: none;
+    }
+
+    .homescreen-title {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+      
+    .homescreen-description {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+      
+    .homescreen-signup-button {
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+    .games-category-container {
+        margin-top: 100px;
+    }
+      
+    .games-category-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+      }
+      
+    .games-category-list {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+      
+    .game-card {
+        width: 250px;
+        height: 200px;
+    }
+      
+    .game-image-container {
+        width: 150px;
+        height: 150px;
+      }
+      
+    .game-name {
+        font-size: 26px;
+    }
+
+    .home-about-us-container {
+        padding: 25px;
+        margin-top: 100px;
+      }
+      
+    .home-about-us-image-container {
+        display: none;
+    }
+
+    .home-about-us-content {
+        max-width: 100%;
+    }
+      
+    .home-about-us-title {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+      
+    .home-about-us-description {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+      
+    .find-out-more-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+      
+    .about-us-image-container {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 650px) {
+    .home-about-us-big{
+        padding: 0;
+        margin-right: 15%;
+    }
+
+    .home-about-us-image-container {
+        display: none;
+    }
+
+    .home-about-us-content {
+        max-width: 100%;
+    }
+}

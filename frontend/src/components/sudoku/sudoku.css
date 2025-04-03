@@ -1,0 +1,175 @@
+.sudoku-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sudoku-settings-wrapper {
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.sudoku-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sudoku-setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sudoku-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+}
+
+.sudoku-select {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 12px;
+    background: #2C2C34;
+    border: none;
+    border-radius: 6px;
+    color: white;
+}
+
+.sudoku-input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sudoku-input-fields input {
+    padding: 12px;
+    font-size: 18px;
+    background: #2C2C34;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: white;
+}
+
+.sudoku-input-fields input:focus {
+    outline: none;
+    border-color: #28A661;
+}
+
+.sudoku-error {
+    color: #ff4444;
+    font-size: 16px;
+}
+
+.sudoku-image img {
+    max-width: 600px;
+    height: 400px;
+    border-radius: 12px;
+}
+
+.sudoku-button-primary {
+    background: #28A661;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.sudoku-button-primary:hover {
+    opacity: 0.9;
+}
+
+.sudoku-input {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 12px;
+    background: #2C2C34;
+    border: 1px solid #3E3E48;
+    border-radius: 6px;
+    color: white;
+}
+
+.sudoku-input:focus {
+    border-color: #28A661 !important;
+    box-shadow: 0 0 0 2px rgba(40, 166, 97, 0.2);
+    outline: none;
+}
+
+.sudoku-input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.sudoku-input::-webkit-outer-spin-button,
+.sudoku-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+.sudoku-history-link {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .sudoku-history-link:hover {
+    opacity: 0.8;
+  }
+
+.sudoku-history-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .sudoku-history-modal-content {
+    background: #2C2C34;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 90%;
+    width: 500px;
+  }
+
+@media (max-width: 800px) {
+    .sudoku-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+    
+    .sudoku-image {
+        display: none;
+    }
+    
+    .sudoku-settings-wrapper {
+        width: 100%;
+        padding: 20px;
+    }
+}
