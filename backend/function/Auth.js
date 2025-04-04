@@ -75,7 +75,7 @@ router.post('/signup', async (req, res) => {
         }
     });
 
-    const verificationLink = `http://localhost:3000/api/otp/verify-email?token=${verifyToken}`;
+    const verificationLink = `https://logical-backend.vercel.app/api/otp/verify-email?token=${verifyToken}`;
 
     const mailOptions = {
       to: newUser.email,
