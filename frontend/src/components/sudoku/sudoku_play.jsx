@@ -146,9 +146,6 @@ const SudokuPlay = () => {
                 headers: { Authorization: `Bearer ${token}` }
               });
           
-              // Kiểm tra cấu trúc response
-              console.log('User response:', userResponse.data); 
-          
               await axios.post(
                 'https://logical-backend.vercel.app/api/game/save-sudoku-history',
                 {

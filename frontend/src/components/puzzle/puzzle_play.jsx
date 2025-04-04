@@ -158,7 +158,7 @@ useEffect(() => {
               userId: userResponse.data.id,
               level: gridSize + 'x' + gridSize,
               time: formatTime(),
-              hint: state.hintMode === 'Limited' ? state.hintLimit - hintCount : 'Unlimited',
+              hint: state.hintMode === 'Limited' ? hintCount : 'Unlimited',
               moves: moves
             },
             { headers: { Authorization: `Bearer ${token}` } }
