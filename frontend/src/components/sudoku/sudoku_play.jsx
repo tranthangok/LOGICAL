@@ -114,6 +114,32 @@ const SudokuPlay = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [incorrectCells, setIncorrectCells] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [activeCell, setActiveCell] = useState(null);
+  const inputRef = useRef(null);
+
+  <input
+  ref={inputRef}
+  type="number"
+  min="1"
+  max="9"
+  value={inputValue}
+  style={{
+    position: 'absolute',
+    opacity: 0,
+    height: 0,
+    width: 0,
+    pointerEvents: 'none'
+  }}
+  onChange={(e) => {
+    const value = e.target.value.slice(-1);
+    if (activeCell && value.match(/[1-9]/)) {
+      handleNumberInput(activeCell.row, activeCell.col, value);
+    }
+    setInputValue('');
+  }}
+  onBlur={() => setActiveCell(null)}
+/>
 
   useEffect(() => {
     if (cellRef.current && selectedCell) {
@@ -270,14 +296,17 @@ useEffect(() => {
   const handleCellClick = (row, col) => {
     if (isLoading || isPaused || isSolved || grid[row][col].fixed) return;
     
-    const newValue = prompt('Enter number (1-9):');
-    const input = newValue ? newValue.replace(/[^1-9]/g, '')[0] || '' : '';
-    
-    if (!input) return;
-
+    // Kích hoạt input ẩn
+    setActiveCell({ row, col });
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 50);
+  };
+  
+  // Hàm xử lý nhập số mới
+  const handleNumberInput = (row, col, value) => {
     const newGrid = [...grid];
-    newGrid[row][col] = { ...newGrid[row][col], value: input };
-    
+    newGrid[row][col] = { ...newGrid[row][col], value };
     setGrid(newGrid);
     setMoves(m => m + 1);
   };
@@ -485,14 +514,11 @@ useEffect(() => {
                       key={`${i}-${j}`}
                       className={`sudoku-cell 
                         ${cell.fixed ? 'fixed' : ''} 
-                        ${selectedCell?.row === i && selectedCell?.col === j ? 'selected' : ''}
+                        ${activeCell?.row === i && activeCell?.col === j ? 'selected' : ''}
                         ${isWrong ? 'wrong' : ''}
                         ${isCorrect ? 'correct' : ''}
                       `}
-                      onClick={() => setSelectedCell({ row: i, col: j })}
-                      onKeyDown={(e) => handleKeyPress(e, i, j)}
-                      tabIndex={0}
-                      ref={selectedCell?.row === i && selectedCell?.col === j ? cellRef : null}
+                      onClick={() => handleCellClick(i, j)}
                     >
                       {cell.value || ''}
                     </div>

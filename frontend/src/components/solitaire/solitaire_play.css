@@ -112,6 +112,8 @@
     transition: transform 0.2s, box-shadow 0.2s;
     position: absolute;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    -webkit-user-drag: none;
+    user-select: none;
   }
   
   .solitaire-card .card-value {
@@ -190,6 +192,7 @@
     border: 2px dashed #3E3E48;
     border-radius: 8px;
     position: relative;
+    touch-action: none;
   }
   
   .last-two-cards {
