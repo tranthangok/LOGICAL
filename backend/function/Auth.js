@@ -11,8 +11,6 @@ const { transporter } = require('../config/Email.js');
 // Route đăng nhập
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    res.header('Access-Control-Allow-Origin', 'https://logical-sage.vercel.app');
-    res.header('Access-Control-Allow-Credentials', true);
     try {
       const user = await UsersModel.findOne({ email: email });
       if (!user) {

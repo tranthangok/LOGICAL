@@ -16,16 +16,9 @@ const gameDataRouter = require('./function/Game_data');
 // Thay đổi cấu hình CORS
 app.use(
   cors({
-    origin: ['https://logical-sage.vercel.app'], // Bỏ dấu '/' cuối
+    origin: ['https://logical-sage.vercel.app', 'https://logical-backend.vercel.app'],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-    allowedHeaders: [
-      "Content-Type", 
-      "Authorization", 
-      "Cookie", 
-      "Access-Control-Allow-Credentials"
-    ],
-    exposedHeaders: ["Set-Cookie"]
   })
 );
 
