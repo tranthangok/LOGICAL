@@ -52,7 +52,7 @@ const SolitairePlayHistory = ({ onClose }) => {
             <tr key={record._id}>
               <td>{index + 1}</td>
               <td>{record.time}</td>
-              <td>{record.hint ?? 'Unlimited'}</td>
+              <td>{record.hint}</td>
               <td>{record.moves}</td>
               <td>{new Date(record.timePlayed).toLocaleString()}</td>
             </tr>
