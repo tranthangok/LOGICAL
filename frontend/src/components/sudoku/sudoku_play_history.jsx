@@ -17,7 +17,7 @@ const SudokuPlayHistory = ({ onClose }) => {
         );
   
         const response = await axios.get(
-          `https://logical-backend.vercel.app/get-sudoku-history/${userResponse.data.user._id}`,
+          `https://logical-backend.vercel.app/get-sudoku-history/${userResponse.data.user.id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         
