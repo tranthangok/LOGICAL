@@ -66,6 +66,8 @@ router.post('/signup', async (req, res) => {
         verifyTokenExpiry
     });
 
+    await transporter.sendMail(mailOptions);
+
     res.status(201).json({ 
         message: 'Account created successfully. Verify link sent, please check your inbox.',
         user: {
@@ -82,8 +84,6 @@ router.post('/signup', async (req, res) => {
       subject: 'Verify Your Email - LOGICAL',
       html: `Click <a href="${verificationLink}">here</a> to verify your email.`
     };
-
-    await transporter.sendMail(mailOptions);
     
     } catch (err) {
         res.status(500).json({ error: err.message });
