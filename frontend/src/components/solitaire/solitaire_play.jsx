@@ -554,42 +554,39 @@ function SolitairePlay() {
         const isVictory = game.foundations.every(foundation => foundation.length === 13);
         
         if (isVictory && !isGameWon && !hasSaved) {
-            setIsGameWon(true);
-            setShowSuccess(true);
-            createConfetti();
-            setTimeout(() => setShowSuccess(false), 3000);
+        setIsGameWon(true);
+        setShowSuccess(true);
+        createConfetti();
+        setTimeout(() => setShowSuccess(false), 3000);
     
-            const saveHistory = async () => {
-                try {
-                    const authCheck = async () => {
-                        try {
-                          const token = localStorage.getItem('token');
-                          const response = await axios.get('http://localhost:3000/api/auth/user', {
-                            headers: {
-                              Authorization: `Bearer ${token}`,
-                            }
-                          });
-                          setIsAuthenticated(response.data.isAuthenticated);
-                        } catch (error) {
-                          setIsAuthenticated(false);
-                        }
-                      };
+        const saveHistory = async () => {
+            try {
+            const token = localStorage.getItem('token');
+            if (!token) return;
     
-                    await axios.post('http://localhost:3000/api/game/save-solitaire-history', {
-                        userId: authCheck.data.user._id,
-                        time: formatTime(),
-                        hints: hintsRemaining,
-                        moves: game.moves
-                    });
-                    
-                    setHasSaved(true); // Đánh dấu đã lưu
+            const userResponse = await axios.get('https://logical-backend.vercel.app/api/auth/user', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
     
-                } catch (error) {
-                    console.error('Error saving solitaire history:', error);
-                }
-            };
+            await axios.post(
+                'https://logical-backend.vercel.app/api/game/save-solitaire-history',
+                {
+                userId: userResponse.data.id,
+                time: formatTime(),
+                hint: location.state?.hintMode === 'Limited' 
+                    ? parseInt(location.state?.hintLimit) - hintsRemaining 
+                    : null,
+                moves: game.moves
+                },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            } catch (error) {
+            console.error('Error saving solitaire history:', error);
+            }
+        };
     
-            saveHistory();
+        saveHistory();
+        setHasSaved(true);
         }
     }, [game.foundations, isGameWon, game.moves, hintsRemaining, hasSaved]);
 

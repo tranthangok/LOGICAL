@@ -7,7 +7,7 @@ const SolitaireHistorySchema = new mongoose.Schema({
     required: true 
   },
   time: String,
-  hint: String,
+  hint: Number,
   moves: Number,
   timePlayed: { 
     type: Date, 
