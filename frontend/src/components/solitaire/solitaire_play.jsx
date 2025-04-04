@@ -36,8 +36,6 @@ function SolitairePlay() {
     const [isGameWon, setIsGameWon] = useState(false); 
     const [showSuccess, setShowSuccess] = useState(false);
     const [hasSaved, setHasSaved] = useState(false);
-    const [touchStartPos, setTouchStartPos] = useState(null);
-    const [currentTouchCard, setCurrentTouchCard] = useState(null);
 
     useEffect(() => {
         if (location.state?.timeMode === 'Counting') {
@@ -180,15 +178,7 @@ function SolitairePlay() {
         document.body.appendChild(dragImage);
         e.dataTransfer.setDragImage(dragImage, 45, 60);
         setTimeout(() => document.body.removeChild(dragImage), 0);
-
-        if (e.type === 'touchstart') {
-            const dragImage = e.target.cloneNode(true);
-            dragImage.style.position = 'fixed';
-            dragImage.style.left = '-9999px';
-            document.body.appendChild(dragImage);
-            e.dataTransfer.setDragImage(dragImage, 0, 0);
-        }
-    };
+      };
     
     const handleDragOver = (e) => {
         e.preventDefault();
@@ -439,9 +429,6 @@ function SolitairePlay() {
                 draggable={card.isRevealed}
                 onDragStart={(e) => handleDragStart(e, card, sourceType, sourceIndex, index)}
                 onClick={() => handleCardClick(card, sourceType, sourceIndex, index)}
-                onTouchStart={(e) => handleTouchStart(e, card, sourceType, sourceIndex, index)}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
             >
                 {card.isRevealed && (
                     <>
@@ -623,53 +610,6 @@ function SolitairePlay() {
         setShowSuccess(true);
         createConfetti();
         setTimeout(() => setShowSuccess(false), 3000);
-    };
-
-    const handleTouchStart = (e, card, sourceType, sourceIndex, cardIndex) => {
-        if (!card.isRevealed) return;
-        
-        const touch = e.touches[0];
-        setTouchStartPos({
-            x: touch.clientX,
-            y: touch.clientY,
-            card,
-            sourceType,
-            sourceIndex,
-            cardIndex
-        });
-        setCurrentTouchCard(card);
-    };
-    
-    const handleTouchMove = (e) => {
-        if (!touchStartPos) return;
-        e.preventDefault();
-    };
-    
-    const handleTouchEnd = (e) => {
-        if (!touchStartPos) return;
-        
-        const touch = e.changedTouches[0];
-        const endX = touch.clientX;
-        const endY = touch.clientY;
-        
-        const targetElement = document.elementFromPoint(endX, endY);
-        const targetPlaceholder = targetElement?.closest('.solitaire-card-placeholder, .solitaire-tableau, .solitaire-foundation');
-        
-        if (targetPlaceholder) {
-            const targetType = targetPlaceholder.classList.contains('solitaire-foundation') ? 'foundation' 
-                : targetPlaceholder.classList.contains('solitaire-tableau') ? 'tableau' 
-                : 'tableau';
-            
-            const targetIndex = Array.from(targetPlaceholder.parentNode.children).indexOf(targetPlaceholder);
-            
-            handleDrop({
-                preventDefault: () => {},
-                dataTransfer: { getData: () => {} }
-            }, targetType, targetIndex);
-        }
-        
-        setTouchStartPos(null);
-        setCurrentTouchCard(null);
     };
     
     return (
