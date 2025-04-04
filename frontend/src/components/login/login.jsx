@@ -75,6 +75,7 @@ const Login = () => {
             .then(result => {
                 if (result.status === 200) {
                     localStorage.setItem('token', result.data.token);
+                    localStorage.setItem('user', JSON.stringify(result.data.user));
                     setSuccessMessage('Login successfully! Redirecting...');
                     const newTimeoutId = setTimeout(() => {
                         setSuccessMessage('');

@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const app = express();
 const UsersModel = require('./model/Users.js');
-const cookieParser = require('cookie-parser');
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
@@ -13,18 +12,17 @@ const feedbackRouter = require('./function/Feedback.js');
 const otpEmailRouter = require('./function/OTP_and_Email_links.js');
 const gameDataRouter = require('./function/Game_data');
 
-// Thay đổi cấu hình CORS
 app.use(
   cors({
-    origin: ['https://logical-sage.vercel.app', 'https://logical-backend.vercel.app'],
+    origin: ['https://logical-sage.vercel.app'],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["Authorization"],
   })
 );
 
 app.options('*', cors());
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/auth', authRouter);
