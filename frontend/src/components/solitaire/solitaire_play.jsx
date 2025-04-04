@@ -571,12 +571,10 @@ function SolitairePlay() {
             await axios.post(
                 'https://logical-backend.vercel.app/api/game/save-solitaire-history',
                 {
-                userId: userResponse.data.id,
-                time: formatTime(),
-                hint: location.state?.hintMode === 'Limited' 
-                    ? parseInt(location.state?.hintLimit) - hintsRemaining 
-                    : null,
-                moves: game.moves
+                    userId: userResponse.data.id,
+                    time: formatTime(),
+                    hint: state.hintMode === 'Limited' ? state.hintLimit - hintCount : null,
+                    moves: game.moves
                 },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
