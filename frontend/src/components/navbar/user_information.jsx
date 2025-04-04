@@ -92,8 +92,7 @@ const UserInformation = ({ setShowModal }) => {
   
         await axios.put(
           'https://logical-backend.vercel.app/api/auth/user',
-          payload, // Sử dụng payload mới
-          { withCredentials: true }
+          payload, 
         );
   
         // Hiển thị thông báo và reset trạng thái

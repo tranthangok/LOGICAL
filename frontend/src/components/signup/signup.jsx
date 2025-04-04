@@ -113,7 +113,6 @@ const Signup = () => {
         if (hasError) return;
 
         axios.post('https://logical-backend.vercel.app/api/auth/signup', {name, email, password}, { 
-            withCredentials: true,
             headers: { 'Content-Type': 'application/json' }
           })
         .then(result => {
