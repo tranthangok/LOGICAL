@@ -16,7 +16,8 @@ const gameDataRouter = require('./function/Game_data');
 app.use(
   cors({
     origin: [
-      'https://logical-sage.vercel.app/'
+      'https://logical-sage.vercel.app/',
+      'https://logical-backend.vercel.app/',
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
