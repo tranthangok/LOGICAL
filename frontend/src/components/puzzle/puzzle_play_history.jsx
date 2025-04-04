@@ -3,6 +3,33 @@ import './puzzle_play_history.css';
 import axios from 'axios';
 
 const PuzzlePlayHistory = ({ onClose }) => {
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        const userResponse = await axios.get(
+          'https://logical-backend.vercel.app/api/auth/user',
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+
+        const response = await axios.get(
+          `https://logical-backend.vercel.app/api/game/get-puzzle-history/${userResponse.data.id}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        
+        setHistory(response.data);
+      } catch (error) {
+        console.error('Error fetching puzzle history:', error);
+      }
+    };
+    
+    fetchHistory();
+  }, []);
+
   return (
     <div className="puzzle-history-container">
       <div className="puzzle-history-header">

@@ -135,13 +135,42 @@ const PuzzlePlay = () => {
         return tiles.slice(0, -1).every((tile, index) => tile === index + 1);
     }, [tiles, gridSize]); 
 
-    useEffect(() => {
-        if (checkSolved() && tiles.length > 0 && !isSolved) {
-            setIsSolved(true);
-            setShowSuccess(true);
-            setTimeout(() => setShowSuccess(false), 3000);
+    // Trong useEffect kiểm tra thắng
+useEffect(() => {
+    if (checkSolved() && tiles.length > 0 && !isSolved) {
+      setIsSolved(true);
+      setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 3000);
+  
+      // Thêm phần lưu lịch sử
+      const saveHistory = async () => {
+        try {
+          const token = localStorage.getItem('token');
+          if (!token) return;
+  
+          const userResponse = await axios.get('https://logical-backend.vercel.app/api/auth/user', {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+  
+          await axios.post(
+            'https://logical-backend.vercel.app/api/game/save-puzzle-history',
+            {
+              userId: userResponse.data.id,
+              level: gridSize + 'x' + gridSize,
+              time: formatTime(),
+              hint: state.hintMode === 'Limited' ? state.hintLimit - hintCount : 'Unlimited',
+              moves: moves
+            },
+            { headers: { Authorization: `Bearer ${token}` } }
+          );
+        } catch (error) {
+          console.error('Error saving puzzle history:', error);
         }
-    }, [tiles, checkSolved, moves, isSolved]);
+      };
+  
+      saveHistory();
+    }
+  }, [tiles, checkSolved, moves, isSolved]);
 
       const formatTime = () => {
         if (location.state?.timeMode === 'Counting') {
