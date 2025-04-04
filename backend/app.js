@@ -13,18 +13,23 @@ const feedbackRouter = require('./function/Feedback.js');
 const otpEmailRouter = require('./function/OTP_and_Email_links.js');
 const gameDataRouter = require('./function/Game_data');
 
+// Thay đổi cấu hình CORS
 app.use(
   cors({
-    origin: [
-      'https://logical-sage.vercel.app/',
-      'https://logical-backend.vercel.app/',
-    ],
+    origin: ['https://logical-sage.vercel.app'], // Bỏ dấu '/' cuối
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "Cookie"]
+    allowedHeaders: [
+      "Content-Type", 
+      "Authorization", 
+      "Cookie", 
+      "Access-Control-Allow-Credentials"
+    ],
+    exposedHeaders: ["Set-Cookie"]
   })
 );
 
+app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
