@@ -142,7 +142,7 @@ const SudokuPlay = () => {
               const token = localStorage.getItem('token');
               if (!token) return;
           
-              const userResponse = await axios.get('http://localhost:3000/api/auth/user', {
+              const userResponse = await axios.get('https://logical-backend.vercel.app/api/auth/user', {
                 headers: { Authorization: `Bearer ${token}` }
               });
           
@@ -150,7 +150,7 @@ const SudokuPlay = () => {
               console.log('User response:', userResponse.data); 
           
               await axios.post(
-                'http://localhost:3000/api/game/save-sudoku-history',
+                'https://logical-backend.vercel.app/api/game/save-sudoku-history',
                 {
                   userId: userResponse.data.id,
                   level: difficulty,

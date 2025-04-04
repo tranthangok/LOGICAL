@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3000/api/auth/logout');
+      await axios.post('https://logical-backend.vercel.app/api/auth/logout');
       localStorage.removeItem('token');
       setIsLoggedIn(false);
       navigate('/?logoutSuccess=true');

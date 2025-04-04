@@ -71,7 +71,7 @@ const Login = () => {
         }
         if (hasError) return;
 
-        axios.post('http://localhost:3000/api/auth/login', { email, password })
+        axios.post('https://logical-backend.vercel.app/api/auth/login', { email, password })
             .then(result => {
                 if (result.status === 200) {
                     localStorage.setItem('token', result.data.token);

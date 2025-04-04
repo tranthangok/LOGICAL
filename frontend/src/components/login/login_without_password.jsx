@@ -32,7 +32,7 @@ const LoginWithoutPassword = ({ onClose }) => {
 
     setIsLoading(true);
     try {
-      await axios.post('http://localhost:3000/api/otp/send-otp', { email });
+      await axios.post('https://logical-backend.vercel.app/api/otp/send-otp', { email });
       setMessage({ text: 'OTP sent! Check your email', type: 'success' });
       
       const waitTimes = [0, 60, 120, 180, 300];
@@ -69,7 +69,7 @@ const LoginWithoutPassword = ({ onClose }) => {
     }
   
     try {
-      const response = await axios.post('http://localhost:3000/api/otp/verify-otp', { email, otp });
+      const response = await axios.post('https://logical-backend.vercel.app/api/otp/verify-otp', { email, otp });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         setMessage({ text: 'Login successful! Redirecting...', type: 'success' });

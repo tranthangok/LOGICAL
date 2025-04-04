@@ -12,12 +12,12 @@ const SudokuPlayHistory = ({ onClose }) => {
         if (!token) return;
   
         const userResponse = await axios.get(
-          'http://localhost:3000/api/auth/user',
+          'https://logical-backend.vercel.app/api/auth/user',
           { headers: { Authorization: `Bearer ${token}` } }
         );
   
         const response = await axios.get(
-          `http://localhost:3000/api/game/get-sudoku-history/${userResponse.data.user._id}`,
+          `https://logical-backend.vercel.app/get-sudoku-history/${userResponse.data.user._id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         

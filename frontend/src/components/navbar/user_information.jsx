@@ -59,7 +59,7 @@ const UserInformation = ({ setShowModal }) => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(
-          'http://localhost:3000/api/auth/user',
+          'https://logical-backend.vercel.app/api/auth/user',
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -91,7 +91,7 @@ const UserInformation = ({ setShowModal }) => {
         };
   
         await axios.put(
-          'http://localhost:3000/api/auth/user',
+          'https://logical-backend.vercel.app/api/auth/user',
           payload, // Sử dụng payload mới
           { withCredentials: true }
         );
@@ -129,7 +129,7 @@ const UserInformation = ({ setShowModal }) => {
 
   const sendOTP = async () => {
     try {
-    await axios.post('http://localhost:3000/api/otp/send-otp', { email: userInfo.email });
+    await axios.post('https://logical-backend.vercel.app/api/otp/send-otp', { email: userInfo.email });
     setOtpMessage({ text: 'OTP sent! Check your email', type: 'success' });
       // Set cooldown 60s
       setOtpCooldown(60);
@@ -147,7 +147,7 @@ const UserInformation = ({ setShowModal }) => {
     
   const verifyOTP = async () => {
       try {
-        const response = await axios.post('http://localhost:3000/api/otp/verify-otp', {
+        const response = await axios.post('https://logical-backend.vercel.app/api/otp/verify-otp', {
           email: userInfo.email,
           otp
         });

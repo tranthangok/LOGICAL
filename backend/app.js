@@ -16,7 +16,7 @@ const gameDataRouter = require('./function/Game_data');
 app.use(
   cors({
     origin: [
-      'http://localhost:5173'
+      'https://logical-sage.vercel.app/sudoku-play'
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,

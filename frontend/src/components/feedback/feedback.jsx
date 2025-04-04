@@ -20,7 +20,7 @@ const Feedback = () => {
           try {
             const token = localStorage.getItem('token');
             const response = await axios.get(
-              'http://localhost:3000/api/auth/user',
+              'https://logical-backend.vercel.app/api/auth/user',
               {
                 headers: {
                   Authorization: `Bearer ${token}`
@@ -68,7 +68,7 @@ const Feedback = () => {
 
         if (name && email && feedback) {
             try {
-                await axios.post('http://localhost:3000/api/feedback/send-feedback', {
+                await axios.post('https://logical-backend.vercel.app/api/feedback/send-feedback', {
                     name,
                     email,
                     feedback
