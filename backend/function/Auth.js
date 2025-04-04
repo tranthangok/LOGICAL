@@ -66,17 +66,6 @@ router.post('/signup', async (req, res) => {
         verifyTokenExpiry
     });
 
-    res.status(201).json({ 
-        message: 'Account created successfully. Verify link sent, please check your inbox.',
-        user: {
-            id: newUser._id,
-            name: newUser.name,
-            email: newUser.email
-        }
-    });
-
-    await transporter.sendMail(mailOptions);
-
     const verificationLink = `https://logical-backend.vercel.app/api/otp/verify-email?token=${verifyToken}`;
 
     const mailOptions = {
@@ -84,6 +73,17 @@ router.post('/signup', async (req, res) => {
       subject: 'Verify Your Email - LOGICAL',
       html: `Click <a href="${verificationLink}">here</a> to verify your email.`
     };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(201).json({ 
+      message: 'Account created successfully. Verify link sent, please check your inbox.',
+      user: {
+          id: newUser._id,
+          name: newUser.name,
+          email: newUser.email
+      }
+    });
     
     } catch (err) {
         res.status(500).json({ error: err.message });
