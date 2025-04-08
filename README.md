@@ -26,7 +26,7 @@ Logical is a website dedicated to mind-challenging games such as **Sudoku, Puzzl
 
 ## 🔗 Important Links
 - 🎨 **Figma Design**: https://www.figma.com/design/BpH19IB9MdYnl3fjUaWGEM/LOGICAL?node-id=0-1&p=f&t=eb5FRuWUiItinfFm-0
-- 🎮 **Live Demo**: [Add link here]
+- 🎮 **Live Demo**: https://youtu.be/Scql4Y9K_3c
 
 ---
 
