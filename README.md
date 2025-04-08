@@ -20,7 +20,7 @@ Logical is a website dedicated to mind-challenging games such as **Sudoku, Puzzl
 4. Enjoy and improve your logical thinking every day!
 
 ## 🛠 Technologies Used
-- **Front-end**: React, CSS
+- **Front-end**: React, Tailwind CSS
 - **Back-end**: Node.js, Express
 - **Database**: MongoDB
 
